@@ -4,7 +4,7 @@ function checkStyles(urlBg, colorBg) {
   if (urlBg) {
     return {
       background: `url(${urlBg})`,
-      backgroundSize: "contain",
+      backgroundSize: "cover",
     };
   }
   if (colorBg) {
@@ -13,9 +13,7 @@ function checkStyles(urlBg, colorBg) {
   return null;
 }
 
-function Layout({ title, descr, urlBg, colorBg }) {
-  console.log("urlBg", urlBg);
-  console.log("colorBg", colorBg);
+function Layout({ title, descr, urlBg, colorBg, children }) {
   return (
     <section className={styles.root} style={checkStyles(urlBg, colorBg)}>
       <div className={styles.wrapper}>
@@ -29,6 +27,7 @@ function Layout({ title, descr, urlBg, colorBg }) {
           </div>
         </article>
       </div>
+      {children}
     </section>
   );
 }
